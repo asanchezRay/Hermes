@@ -1,0 +1,1485 @@
+/* mapa */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto;
+}
+
+
+/* Miguel Inicio */
+/* Main esta aqui por si agregamos algo en el espacio que ocupa el mapa */
+/* Como los pasos de la ruta */
+/* El CSS de Main esta abajo en los media-query Movil y Escritorio */
+/* .main{ */
+    /* height: 92%; */
+    /* width: 100%; */
+    /* margin:0; */
+    /* padding:0; */
+    /* display:flex;  */
+    /* -webkit-display: flex;  */
+    /*chrome y opera*/
+    /* -moz-display: flex;  */
+    /*moz*/
+    /* -ms--display: flex;  */
+    /*ie*/
+/* } */
+
+
+#map{
+  height:auto;
+  width:100%;
+  border-style: solid;
+  border-bottom-style: none;
+}
+
+#generateRouteButton:active{
+  -ms-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+/* Miguel Fin */
+
+
+#iSalir:hover {
+    background-color: #e83737;
+    border-radius: 50%;
+}
+
+
+/*Ventana modal: cumple la funcion de oscurecer toda la pantalla*/
+.modal {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    margin: auto;
+    overflow: auto;
+    visibility: hidden;
+}
+
+
+/*Centra todos los elementos dentro de una "pantalla" (ver los divs cuyo ID empiece con 'p')*/
+.centraVentanas {
+    text-align: center;
+    padding: 10px;
+}
+
+/*boton aceptar*/
+.botonDeSeleccion {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 3%;
+    width: 40%;
+    border-radius: 3px;
+    border: none;
+    background-color: #23383f;
+    color: white;
+    font-size: 110%;
+}
+
+.botonDeSeleccion:hover, #edita:hover {
+    opacity: 0.9;
+}
+
+
+/*Titulos de las "pantallas"*/
+.titulo {
+    font-weight: bold;
+    color: #23383f;
+}
+
+/*padding para los iconos del menu*/
+#lista i {
+    padding-right: 10px;
+}
+
+
+/*Impide que el textArea en sugerir recomendacion se pueda cambiar de tamaño*/
+textarea {
+  resize: none;
+}
+
+#descripcion {
+    padding: 1%;
+    width: 50%;
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.rating {
+  margin: 3% 0;
+  direction: rtl;
+}
+
+.iStars {
+  font-size: 36px;
+  /*transition: all .2s;*/
+  color: #2c3e50;
+}
+
+.iStars:hover {
+  /*transform: rotate(-15deg) scale(1.3);*/
+  color: #f1c40f;
+}
+
+
+#star5:hover ~ .iStars {
+  color: #f1c40f;
+}
+
+
+#star4:hover ~ .iStars {
+  color: #f1c40f;
+}
+
+#star3:hover ~ .iStars {
+  color: #f1c40f;
+}
+
+#star2:hover ~ .iStars {
+  color: #f1c40f;
+}
+
+#star1:hover ~ .iStars {
+  color: #f1c40f;
+}
+
+.iMenos {
+    display: none;
+}
+/*----------------------- Estilos exclusivos para la version de escritorio---------------------- */
+
+@media screen and (min-width: 769px) {
+/* Div Mapa */
+  .main{
+    height: 92%;
+    width: 100%;
+    margin:0;
+    padding:0;
+    display:flex;
+  }
+
+  .placeInfo {
+    color: black;
+    background-color: white;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+  }
+
+    .tooltip {
+        position: relative;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #23383f;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid #23383f;
+        font-size: 85%;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.8s;
+        bottom: 120%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+/* navegador */
+nav {
+    width: 100%;
+    height: 8%;
+    min-height: 50px;
+    background-color: #23383f;
+    color: white;
+    display: flex; /*Se comporta como una flex-box*/
+    align-items: center; /*todos los elementos dentro del flex se centran*/
+    overflow: hidden;
+}
+
+.imagen_usuario_menu {
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/*lista al centro y desplaza a los demas elementos a los costados*/
+#lista {
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+}
+
+#lista li {
+    float: left;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+/*No se muestra ya que no desempeña ninguna funcion en esta version*/
+#iBarra {
+    display: none;
+}
+
+/*logo*/
+#logo {
+    width: 50px;
+}
+
+#lista li:hover {
+    border-bottom: 3px solid #1FA9D7;
+}
+
+/*Nombre del usuario obtenido de la BD*/
+#nombreUsuario {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+#iSalir {
+    padding: 10px;
+}
+
+/*------------------------------------------CAMBIAR-------------------*/
+#pSugerirRecomendacion {
+    color: black;
+    background-color: white;
+    height: 92%;
+    width: 40%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+#pTutorial{
+    color: black;
+    background-color: white;
+    height: 70%;
+    width: 60%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+
+.pVentanaEnviada {
+    background-color: white;
+    /*height: 250px; */
+    width: 300px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+}
+
+.pAviso {
+    background-color: white;
+    /*height: 200px;*/
+    width: 300px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    padding: 20px;
+}
+
+/* Flechas tutorial inicial*/
+
+#arrowinicio{
+    font-size: 70px;
+    color: red;
+    margin-top: -23%;
+    left: 33%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+#arrowinicio0{
+    font-size: 70px;
+    color: red;
+    margin-top: -24%;
+    left: 45%;
+    transform: rotate( 10deg );
+    position: absolute;
+
+}
+
+#arrowinicio2{
+    font-size: 70px;
+    color: red;
+    margin-top: -24%;
+    left: 55%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+/*Muestra Ayuda*/
+
+#pAyuda{
+    color: black;
+    background-color: white;
+    height: 85%;
+    width: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+#pAyudaTutorial{
+
+    color: black;
+    background-color: white;
+    height: 85%;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 15%;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+#arrowtutorial{
+    font-size: 50px;
+    color: red;
+    margin-top: -24%;
+    left: 33%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+#arrowtutorial1{
+    font-size: 50px;
+    color: red;
+    margin-top: -24%;
+    left: 45%;
+    transform: rotate( 10deg );
+    position: absolute;
+
+}
+
+#arrowtutorial2{
+    font-size: 50px;
+    color: red;
+    margin-top: -24%;
+    left: 54%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+#arrowtutorial3{
+    font-size: 50px;
+    color: red;
+    margin-top: -24%;
+    left: 85%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+#arrowtutorial4{
+    font-size: 70px;
+    color: red;
+    margin-top: 51%;
+    left: 31%;
+    transform: rotate( 90deg );
+    position: absolute;
+}
+
+#fRecomendaciones{
+    position: absolute;
+    margin-top: -17%;
+    left: 23%;
+}
+
+#fSugerencias{
+    position: absolute;
+    margin-top: -17%;
+    left: 45%;
+}
+
+#fDatosutiles{
+    position: absolute;
+    margin-top: -17%;
+    left: 35%;
+}
+#fPerfil{
+    position: absolute;
+    margin-top: -17%;
+    left: 80%;
+}
+
+#textoAyuda{
+    background-color: #23383f;
+    width: 100%;
+    color: white;
+    padding: 2%;
+    overflow: auto;
+    text-align: justify;
+}
+
+#contenedorfotos{
+    display: flex;
+    height: 200px;
+}
+
+/* Muestra perfil de usuario */
+#marcoPerfil {
+    background-color: #23383f;
+    width: 100%;
+    height: 300px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border-radius: 3px;
+}
+
+#pPerfilUsuario {
+    background-color: white;
+    /*height: 570px;*/
+    width: 600px;
+    border-radius: 3px;
+    margin: auto;
+    overflow: auto;
+    color: black;
+    padding: 20px;
+}
+/*X*/
+.contenedorCerrar {
+    padding-top:10px;
+    text-align: right;
+}
+
+
+.iCerrar {
+    font-size: 30px;
+    color: #e83737;
+}
+
+.iAyuda {
+    font-size: 30px;
+    color: #23383f;
+}
+
+.iAyudablanco {
+    font-size: 30px;
+    color: white;
+}
+
+/*.iAyudanav {
+    font-size: 20px;
+    color: white;
+    padding: 5px;
+}*/
+.imagenUsuario {
+    width: 100px;
+    height: 100px;
+    border: 5px solid white;
+    margin-top: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ .inputSubida {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: -1;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .botonInputSubida {
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        color: #23383f;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+#datosPerfil h3 {
+    padding: 10px;
+}
+
+.contPerfil {
+    display: flex;
+    align-items: center;
+    width: 96%;
+    background-color: white;
+    color: #23383f;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+    margin: 1% 2% 2% 2%;
+}
+
+.contPerfil:hover {
+    background-color: #23383f;
+    color: white;
+}
+
+.contPerfil i {
+    float: left;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+#CDU {
+    display: none;
+}
+
+.displayDato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#datosUsuario {
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    overflow: auto;
+    margin: 5%;
+    padding: 5%;
+    text-align: center;
+    color: #23383f;
+
+}
+
+#edita {
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #23383f;
+    color: white;
+    font-size: 110%;
+}
+
+    #bCalificar {
+        padding: 10px;
+        border-radius: 3px;
+        border: none;
+        background-color: #23383f;
+        color: white;
+        font-size: 110%;
+        margin: 20px;
+
+}
+
+.dato {
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px 20px;
+    display: inline-block;
+    text-align: center;
+    overflow: auto;
+}
+
+#pModificar {
+    background-color: white;
+    /*height: 400px;*/
+    width: 500px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    padding: 20px;
+}
+
+.inputRegistro {
+    padding: 1%;
+    width: 50%;
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.textoRegistro, label{
+   display: inline-block;
+   font-size: 90%;
+}
+
+#categoria{
+    height: 6%;
+    width: 40%;
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#peso{
+    height: 6%;
+    width: 13%;
+    border: 2px solid #23383f;
+    border-radius: 3px;
+}
+
+
+/* Calificar */
+#pCalificar {
+    background-color: white;
+    /*height: 470px;*/
+    width: 500px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+
+#tipoServicio {
+    height: 6%;
+    width: 40%;
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+/* Datos Útiles*/
+#pInformacion {
+    background-color: white;
+    /*height: 500px;*/
+    width: 700px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+pre {
+    font-family: 'Roboto', sans-serif;
+    background-color: #23383f;
+    color: white;
+    margin: 2%;
+    overflow: auto;
+}
+
+pre p {
+    width:inherit;
+    white-space: pre-wrap;
+    padding: 2%;
+}
+
+.contMargenDU {
+    margin: 1% 2% 0 2%;
+}
+
+.contDU {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #23383f;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+}
+
+.contDU:hover {
+    background-color: #23383f;
+    color: white;
+}
+
+.contDU h3 {
+    margin-left: 2%;/*Con padding se buguea "indumentaria" en Chrome y Opera*/
+    font-size: 150%;
+}
+
+.iMenos {
+    display: none;
+}
+
+.contDU i {
+    float: left;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+
+
+
+
+#pRecomendaciones {
+    background-color: white;
+    /*height: 500px;*/
+    width: 900px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+#reloj{
+    float: left;
+    margin-left: 2%;
+    width: 13%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#dHora{
+    float: right;
+    margin-right: 5%;
+    width: 75%;
+}
+
+#gHora{
+    background-color: #23383f;
+    overflow: hidden;
+    color: white;
+    margin-top: 5%;
+}
+
+#gDistancia{
+    background-color: #23383f;
+    overflow: hidden;
+    color: white;
+    margin-top: 3%;
+    height: 100px;
+}
+
+#iconruta{
+    float: left;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#iconoruta{
+    font-size: 80px;
+}
+
+#dDistancia{
+     float: right;
+    margin-right: 5%;
+    width: 75%;
+}
+
+/*
+.fbContainer {
+    text-align: center;
+        border: 1px solid #23383f;
+        border-radius: 3px;
+        overflow: auto;
+    }
+
+.fb-page {
+    padding: 10px;
+}
+
+#datosEv {
+    display: none;
+    margin: 0 2%;
+}
+*/
+
+}
+
+/*-----------------------------------Estilos exclusivos para version movil------------------------------*/
+@media screen and (max-width: 768px) {
+    /* Div Mapa */
+    .main{
+      height: 95.5%;
+      width: 100%;
+      margin:0;
+      padding:0;
+      display:flex;
+    }
+
+    .placeInfo {
+        color: black;
+        background-color: white;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 3px;
+        overflow: auto;
+    }
+
+    /* Ayudas de formulario */
+    .tooltip {
+        position: relative;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #23383f;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid #23383f;
+        font-size: 85%;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.8s;
+        bottom: 120%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Navegador */
+    nav {
+        width: 100%;
+        height: 8%;
+        min-height: 50px;
+        background-color: #23383f;
+        color: white;
+        display: flex; /*nav se comporta como flex-box*/
+        align-items: center;
+    }
+
+    /*ver funcion en js para entender su funcionalidad*/
+    #iBarra {
+        font-size: 20px;
+        margin-left: 20px;
+        padding: 10px;
+    }
+
+    #iBarra:hover {
+        background-color: #0984e3;
+        border-radius: 50%;
+    }
+
+    #nombreUsuario {
+        display: none;
+    }
+
+    /*margin auto en un flex centra el logo*/
+    #logo {
+        width: 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .imagen_usuario_menu {
+        border-radius: 50%;
+        border: 3px solid white;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 70px;
+    }
+    /*despliega el menu en la posicion indicada (ver funcion con #barra en js).
+    Se borran los puntos de la lista*/
+    #lista {
+        position: absolute;
+        top: 5%;
+        list-style: none;
+        background-color: #23383f;
+        padding: 0;
+        display: none;
+        z-index: 1;
+    }
+
+    #lista li {
+        padding: 20px;
+    }
+
+    #lista li:hover {
+        background-color: #0984e3;
+    }
+
+    .contenedorCerrar {
+        padding-top:10px;
+        text-align: right;
+    }
+
+
+    .iCerrar {
+        font-size: 30px;
+        color: #e83737;
+    }
+
+    .iAyuda {
+        font-size: 30px;
+        color: #23383f;
+    }
+
+    .iAyudablanco {
+        font-size: 30px;
+        color: white;
+    }
+
+
+
+/*------------------------------------CAMBIAR-------------------------------------------*/
+    #pSugerirRecomendacion {
+        background-color: white;
+        /*height: 450px;*/
+        width: 70%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+        font-size: 80%;
+    }
+
+
+
+    /* Ventanas luego de enviar un formulario */
+    .pVentanaEnviada {
+        background-color: white;
+        /*height: 200px; */
+        width: 60%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;
+        overflow: auto;
+    }
+
+    /* Ventanas de avisos*/
+    .pAviso {
+        background-color: white;
+        /*height: 200px;*/
+        width: 60%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;
+        overflow: auto;
+    }
+
+    /*Ventana Ayuda*/
+
+     #pAyuda {
+        background-color: white;
+        /*height: 450px;*/
+        width: 80%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+        font-size: 80%;
+    }
+
+    #pAyudaTutorial{
+
+    color: black;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 15%;
+    left: 0;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+    #textoAyuda{
+    background-color: #23383f;
+    width: 100%;
+    color: white;
+    overflow: auto;
+    text-align: justify;
+    padding: 1%;
+    }
+
+    /* arrow para tutorial*/
+    #arrowinicio{
+    font-size: 40px;
+    color: red;
+    margin-top: -23%;
+    left: 33%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+#arrowinicio0{
+    font-size: 40px;
+    color: red;
+    margin-top: -24%;
+    left: 45%;
+    transform: rotate( 10deg );
+    position: absolute;
+
+}
+
+#arrowinicio2{
+    font-size: 40px;
+    color: red;
+    margin-top: -24%;
+    left: 55%;
+    transform: rotate( 10deg );
+    position: absolute;
+}
+
+/*----------------------*/
+
+    #arrowtutorial{
+    font-size: 40px;
+    margin-top: -19%;
+    margin-left: -14%;
+    position: absolute;
+    transform: rotate( 10deg );
+    }
+
+    #arrowtutorial1{
+    font-size: 40px;
+    margin-top: -19%;
+    margin-left: -4%;
+    position: absolute;
+    transform: rotate( 10deg );
+    }
+
+    #arrowtutorial2{
+    font-size: 40px;
+    margin-top: -19%;
+    margin-left: 5%;
+    position: absolute;
+    transform: rotate( 10deg );
+    }
+
+    #arrowtutorial3{
+
+    font-size: 40px;
+    margin-top: -19%;
+    margin-left: 28%;
+    position: absolute;
+    transform: rotate( 10deg );
+    }
+
+     #arrowtutorial4{
+
+    font-size: 50px;
+    margin-top: 41%;
+    margin-left: -45%;
+    position: absolute;
+    transform: rotate( 90deg );
+    }
+    .fa-long-arrow-alt-up::before, arrowtutorial4, arrowtutorial2 {
+        color:red;
+}
+
+
+
+    #fSugerencias{
+        margin-top: -13%;
+        position: absolute;7
+        margin-right: 7%;
+    }
+
+    #fDatosutiles{
+        position: absolute;
+        margin-top: -13%;
+        margin-left: -10%;
+    }
+
+    #fRecomendaciones{
+        position: absolute;
+        margin-top: -12%;
+        margin-left: -24%;
+    }
+
+    #fPerfil{
+        position: absolute;
+        margin-top: -12%;
+        margin-left: 25%;
+    }
+
+    #ventanaRecomendaciones{
+        width: 100%;
+    }
+
+    #ventanaDatosUtiles{
+        width: 100%;
+    }
+
+    #ventanaRuta{
+        width: 100%;
+    }
+
+    #ventanaSugerencias{
+        width: 100%;
+    }
+
+    #ventanaPerfil{
+        width: 100%;
+    }
+
+
+
+    /* Ventana para calificar a Hermes */
+    #pCalificar {
+        background-color: white;
+        /*height: 400px;*/
+        width: 70%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;
+        overflow: auto;
+    }
+
+    #tipoServicio {
+        height: 6%;
+        width: 60%;
+        border: 2px solid #23383f;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    /*boton de salir con el margin ajustado a esta version*/
+    #iSalir {
+        padding: 10px;
+        margin-right: 27px;
+        margin-left: 27px;
+        position: absolute;
+        right: 0;
+    }
+
+  /*   .iAyudanav {
+        font-size: 20px;
+        color: white;
+        padding: 5px;
+        margin-right: 3px;
+        margin-left: 3px;
+        position: absolute;
+        right: 0;
+    }*/
+
+    /* Muestra perfil de usuario */
+    #marcoPerfil {
+        background-color: #23383f;
+        width: 100%;
+        height: 270px;
+        color: white;
+        margin: auto;
+        border-radius: 3px;
+        overflow: auto;
+    }
+
+    #pPerfilUsuario {
+        background-color: white;
+        /*height: 500px;*/
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;
+        overflow: auto;
+    }
+
+    .botonInputSubida {
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        color: #23383f;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .inputSubida {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: -1;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .imagenUsuario {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 5px solid white;
+    }
+
+    #datosPerfil {
+        margin-bottom: 20px;
+    }
+
+    #datosPerfil h3 {
+        padding: 10px;
+    }
+
+    .contPerfil {
+        display: flex;
+        align-items: center;
+        width: 96%;
+        background-color: white;
+        color: #23383f;
+        border-bottom: 2px solid white;
+        border-radius: 3px;
+        margin: 1% 2% 2% 2%;
+    }
+
+    .contPerfil:hover {
+        background-color: #23383f;
+        transition: all .1s;
+        color: white;
+    }
+
+    #CDU {
+        display: none;
+    }
+
+    #contDatosUsuario {
+        display: none;
+    }
+
+    .displayDato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    #datosUsuario {
+        border: 2px solid #23383f;
+        border-radius: 3px;
+        overflow: auto;
+        margin: 5%;
+        padding: 5%;
+        text-align: center;
+        color: #23383f;
+
+    }
+    .contPerfil i {
+        float: left;
+        padding-left: 2%;
+        font-size: 20px;
+    }
+
+    #edita {
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 3px;
+        border: none;
+        background-color: #23383f;
+        color: white;
+        font-size: 110%;
+    }
+
+    #bCalificar {
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 3px;
+        border: none;
+        background-color: #23383f;
+        color: white;
+        font-size: 110%;
+        margin: 20px;
+    }
+
+    .dato {
+        border: 1px solid grey;
+        border-radius: 3px;
+        padding: 5px 20px;
+        display: inline-block;
+        text-align: center;
+        overflow: auto;
+    }
+
+    #pModificar {
+        background-color: white;
+        /*height: 400px; */
+        width: 80%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;
+        overflow: auto;
+    }
+
+    .inputRegistro {
+        padding: 1%;
+        width: 50%;
+        border: 2px solid #23383f;
+        border-radius: 3px;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .textoRegistro, label{
+       display: inline-block;
+       font-size: 90%;
+    }
+
+    #categoria{
+        height: 6%;
+        width: 40%;
+        border: 2px solid #23383f;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    #peso{
+        height: 6%;
+        width: 13%;
+        border: 2px solid #23383f;
+        border-radius: 3px;
+    }
+
+    /* Informacion*/
+    #pInformacion {
+        background-color: white;
+        /*height: 450px;*/
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+        font-size: 80%;
+    }
+
+    pre {
+        font-family: 'Roboto', sans-serif;
+        background-color: #23383f;
+        color: white;
+        margin: 2%;
+        overflow: auto;
+    }
+
+    pre p {
+        width:inherit;
+        white-space: pre-wrap;
+        padding: 2%;
+    }
+
+    .contMargenDU {
+        margin: 1% 2% 0 2%;
+    }
+
+    .contDU {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: #23383f;
+        border-bottom: 2px solid white;
+        border-radius: 3px;
+    }
+
+    .contDU:hover {
+        background-color: #23383f;
+        transition: all .1s;
+        color: white;
+    }
+
+    .contDU h3 {
+        margin-left: 2%;/*Con padding se buguea "indumentaria" en Chrome y Opera*/
+        font-size: 150%;
+    }
+
+    .iMenos {
+        display: none;
+    }
+
+    .contDU i {
+        float: left;
+        padding-left: 2%;
+        font-size: 20px;
+    }
+
+
+
+    /*Recomendaciones*/
+    #pRecomendaciones {
+        background-color: white;
+        /*height: 500px;*/
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+        font-size: 80%;
+    }
+
+    #gHora{
+        background-color: #23383f;
+        color: white;
+        padding: 20px;
+    }
+
+    #gDistancia{
+        background-color: #23383f;
+        color: white;
+        margin-top: 3%;
+        padding: 20px;
+    }
+
+    #iconoruta{
+        font-size: 80px;
+    }
+
+/*
+.fb-page {
+    padding: 10px;
+}
+
+    .fbContainer {
+        text-align: center;
+        border: 1px solid #23383f;
+        border-radius: 3px;
+    }
+*/
+}

@@ -1,0 +1,35 @@
+﻿<b style="font-size: 150%; text-decoration: underline;">Tipos de bicicletas: </b>
+Existen tres categorías de bicicletas:
+
+<b style="font-size: 110%;">1. Híbrida:</b>
+Esta bicicleta es una mezcla de Mountain bike con accesorios de una bici urbana, como la parrilla y tapabarros. Es ideal para transportarnos día a día por una ciudad de terrenos irregulares, con calles en mal estado, ciclovías con solera alta y pendientes.
+
+Esta bicicleta está hecha para entregar comodidad antes que velocidad. Normalmente tiene cambios para diferentes velocidades, pero no lleva los amortiguadores de las hechas para montañas. Lo que la diferencia de la urbana clásica es la posición del cuerpo al sentarse, menos reclinado que en la de montaña, pero no completamente erguido como en la urbana.
+
+<b style="font-size: 110%;">2. De Ciudad o Urbana:</b>
+Está hecha para pedalear en la ciudad, con ruedas lisas y rápidas, tapabarros, canasto  y parrilla, como este ejemplo de GamaBikes. La usuaria de esta bicicleta puede viajar sentada, con la espalda más recta que en las otras bicicletas.
+
+<b style="font-size: 110%;">3. Mountanbike:</b> 
+Es la clásica bicicleta para subir cerros, pero también puede ser usada en la ciudad.
+Sus partes son más robustas que los otros tipos de bicis, ya que están pensadas para resistir y evitar que se deterioren rápidamente.
+
+La mayoría incluye las 21 velocidades,  lo que permite pedalear en diferentes situaciones, en subida, bajada y en terrenos rocosos.
+
+<b style="font-size: 110%;">4. Pistera:</b> 
+La pistera es muy fácil de reconocer por su forma delgada, ligera, y neumáticos angostos. Están fabricadas especialmente para alcanzar altas velocidades, son muy livianas y por lo general no tienen cambios.
+
+Es la elegida entre los deportistas para hacer ciclismo de alta competencia en todo el mundo. En los últimos años, ha sido adoptada por jóvenes urbanos, que la prefieren por su diseño y rapidez .
+
+Son bicicletas diseñadas para circular en velódromos y superficies planas y lisas, lo que las hace frágiles y no resisten exigencias fuertes en terrenos irregulares, subidas y bajadas de cunetas o ciclovías con desniveles
+
+<b style="font-size: 110%;">5. Plegables:</b> 
+Están hechas para poder pedalear por la ciudad, subirse al transporte público  y luego seguir pedaleando, como es el caso de esta EndaBikes.
+
+Estas bicicletas pueden doblarse muy fácilmente, mediante un sistema de ensamblado, disminuyendo el espacio que ocupa la bicicleta mientras no la estamos utilizando. Generalmente poseen ruedas pequeñas, aro 20 o menor, pero hay que considerar que mientras más pequeño el aro de las ruedas, más veces hay que pedalear y menor es el avance, que con ruedas más grandes.
+
+<b style="font-size: 110%;">6. Fixie:</b> 
+Es una adaptación de la bicicleta que se utiliza en la pista, en los velódromos, donde se prescinden de una serie de elementos, como los frenos, cables, guardabarros, etc.
+
+La característica fundamental es el piñón fijo, que hace que siempre tengamos que pedalear, no existe lo que se llama punto muerto, que nos permite girar la rueda trasera mientras bajamos una cuesta, por ejemplo. Si dejamos de pedalear la bicicleta frena.
+
+<em>fuente: http://biut.latercera.com/mujer-urbana/2013/12/una-bicicleta-para-cada-estilo/</em>

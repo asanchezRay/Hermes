@@ -1,0 +1,843 @@
+/* mapa */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto;
+}
+
+
+/* Miguel Inicio */
+/* Main esta aqui por si agregamos algo en el espacio que ocupa el mapa */
+/* Como los pasos de la ruta */
+/* El CSS de Main esta abajo en los media-query Movil y Escritorio */
+/* .main{ */
+    /* height: 92%; */
+    /* width: 100%; */
+    /* margin:0; */
+    /* padding:0; */
+    /* display:flex;  */
+    /* -webkit-display: flex;  */
+    /*chrome y opera*/
+    /* -moz-display: flex;  */
+    /*moz*/
+    /* -ms--display: flex;  */
+    /*ie*/
+/* } */
+
+
+#map{
+  height:auto;
+  width:100%;
+  border-style: solid;
+  border-bottom-style: none;
+}
+
+#generateRouteButton:active{
+  -ms-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+#routeDestinationMarkerImg:hover{
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+/* Miguel Fin */
+
+
+#iSalir:hover {
+    background-color: #e83737;
+    border-radius: 50%;
+    transition: all .1s;
+}
+
+
+/*Ventana modal: cumple la funcion de oscurecer toda la pantalla*/
+.modal {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    margin: auto;
+    overflow: auto;
+    visibility: hidden;
+}
+
+
+.centraVentanas {
+    text-align: center;
+    padding: 10px; 
+}
+
+.botonDeSeleccion {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding: 3%;
+    width: 40%;
+    border-radius: 3px;
+    border: none;
+    background-color: #23383f;
+    color: white;
+    font-size: 110%;
+}
+
+.botonDeSeleccion:hover, #edita:hover {
+    opacity: 0.9;
+}
+
+
+/*Titulos de las "pantallas"*/
+.titulo {
+    font-weight: bold;
+    color: #23383f;
+}
+
+/*padding para los iconos del menu*/
+#lista i {
+    padding-right: 10px;
+}
+
+.rating {
+  margin: 3% 0;
+
+}
+
+.iStars {
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.iMenos {
+    display: none;
+}
+
+
+/*----------------------- Estilos exclusivos para la version de escritorio---------------------- */
+
+@media screen and (min-width: 769px) {
+/* Div Mapa */
+  .main{
+    height: 92%;
+    width: 100%;
+    margin:0;
+    padding:0;
+    display:flex;
+  }
+
+    .tooltip {
+        position: relative;
+    }
+    
+    .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #23383f;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid #23383f;
+        font-size: 85%;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.8s;
+        bottom: 120%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #iBarra {
+        display: none;
+    }
+
+/* navegador */
+nav {
+    width: 100%;
+    height: 8%;
+    min-height: 50px;
+    background-color: #23383f;
+    color: white;
+    display: flex; /*Se comporta como una flex-box*/
+    align-items: center; /*todos los elementos dentro del flex se centran*/
+    overflow: hidden;
+}
+
+.imagen_usuario_menu {
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/*lista al centro y desplaza a los demas elementos a los costados*/
+#lista {
+    padding: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+}
+
+#lista li {
+    cursor: pointer;
+    float: left;
+    padding: 0 20px;
+}
+
+
+/*logo*/
+#logo {
+    width: 50px;
+}
+
+#lista li:hover {
+    border-bottom: 3px solid #1FA9D7;
+}
+
+/*Nombre del usuario obtenido de la BD*/
+#nombreUsuario {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#iSalir {
+    padding: 10px;
+}
+
+#pSugerencias {
+    background-color: white;
+    /*height: 600px;*/
+    width: 800px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+.pAviso {
+    background-color: white;
+    /*height: 200px;*/
+    width: 300px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    padding: 20px;
+}
+
+/* Muestra perfil de usuario */
+#marcoPerfil {
+    background-color: #23383f;
+    width: 100%;
+    height: 300px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border-radius: 3px;
+}
+
+#pPerfilUsuario {
+    background-color: white;
+    /*height: 570px;*/
+    width: 600px;
+    border-radius: 3px;
+    margin: auto;
+    overflow: auto;
+    color: black;
+    padding: 20px;
+}
+
+/*X*/
+.contenedorCerrar {
+    padding-top:10px; 
+    text-align: right;
+}
+
+.iCerrar {
+    font-size: 30px;
+    color: #e83737;
+}
+
+.imagenUsuario {
+    width: 100px;
+    height: 100px;
+    border: 5px solid white;
+    margin-top: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ .inputSubida {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: -1;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .botonInputSubida {
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        color: #23383f;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+
+#datosPerfil h3 {
+    padding: 10px;
+}
+
+.contPerfil {
+    display: flex;
+    align-items: center;
+    width: 96%;
+    background-color: white;
+    color: #23383f;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+    margin: 1% 2% 2% 2%;
+}
+
+.contPerfil:hover {
+    background-color: #23383f;
+    color: white;
+}
+
+
+.contPerfil i {
+    float: left;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+#CDU {
+    display: none;
+}
+
+.displayDato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#datosUsuario {
+    border: 2px solid #23383f;
+    border-radius: 3px;
+    overflow: auto;
+    margin: 5%;
+    padding: 5%;
+    text-align: center;
+    color: #23383f;
+    
+}
+
+
+.dato {
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px 20px;
+    display: inline-block;
+    text-align: center;
+    overflow: auto;
+}
+
+/* Calificar */
+#pCalificaciones {
+    background-color: white;
+    /*height: 600px; */
+    width: 800px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+#pCalificaciones h1 {
+    margin: 0;
+}
+
+#pDestacadas {
+    background-color: white;
+    /*height: 600px;*/
+    width: 900px;
+    border-radius: 3px;
+    margin: auto;
+    color: black;
+    overflow: auto;
+}
+
+
+.contMargenDU {
+    margin: 1% 2% 0 2%;
+}
+
+.contDU {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #23383f;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+}
+
+.contDU:hover {
+    background-color: #23383f;
+    transition: all .1s;
+    color: white;
+}
+
+.contDU h3 {
+    margin-left: 2%;/*Con padding se buguea "indumentaria" en Chrome y Opera*/
+    font-size: 150%;
+}
+
+.iMenos {
+    display: none;
+}
+
+.contDU i {
+    float: left;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+#datosBici, #datosT, #datosI, #datosS {
+    display: none;
+}
+
+.bkSugerencia {
+    padding-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #23383f;
+}
+
+/*Solo las filas pares tendran un color distinto*/
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th,td {
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+th {
+    background-color: #23383f;
+    color: white;   
+}
+tr:hover {
+    background-color: #5A8897;
+    color: white;
+}
+
+#botonMostrarSD {
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    font-size: 80%;
+    font-weight: bold;    
+}
+
+
+}
+
+
+
+/*-----------------------------------Estilos exclusivos para version movil------------------------------*/
+@media screen and (max-width: 768px) {
+    /* Div Mapa */
+    .main{
+      height: 95.5%;
+      width: 100%;
+      margin:0;
+      padding:0;
+      display:flex;
+    }
+
+    /* Ayudas de formulario */
+    .tooltip {
+        position: relative;
+    }
+    
+    .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #23383f;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid #23383f;
+        font-size: 85%;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.8s;
+        bottom: 120%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /* Navegador */
+    nav {
+        width: 100%;
+        height: 8%;
+        min-height: 50px;
+        background-color: #23383f;
+        color: white;
+        display: flex; /*nav se comporta como flex-box*/
+        align-items: center;
+    }
+
+    /*ver funcion en js para entender su funcionalidad*/
+    #iBarra {
+        font-size: 20px;
+        margin-left: 20px;
+        padding: 10px;
+    }
+
+    #iBarra:hover {
+        background-color: #0984e3;
+        border-radius: 50%;
+    }
+
+    #nombreUsuario {
+        display: none;
+    }
+
+    /*margin auto en un flex centra el logo*/
+    #logo {
+        width: 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .imagen_usuario_menu {
+        border-radius: 50%;
+        border: 3px solid white;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 70px;
+    }
+    /*despliega el menu en la posicion indicada (ver funcion con #barra en js).
+    Se borran los puntos de la lista*/
+    #lista {
+        position: absolute;
+        top: 5%;
+        list-style: none;
+        background-color: #23383f;
+        padding: 0;
+        display: none;
+        z-index: 1;
+
+    }
+
+    #lista li {
+        padding: 20px;
+    }
+
+    #lista li:hover {
+        background-color: #0984e3;
+    }
+
+    .contenedorCerrar {
+        padding-top:10px; 
+        text-align: right;
+    }
+
+    .iCerrar {
+        font-size: 30px;
+        color: #e83737;
+    }
+    
+
+    #pSugerencias {
+        background-color: white;
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+        font-size: 80%;
+    }
+
+    /* Ventanas de avisos*/
+    .pAviso {
+        background-color: white;
+        /*height: 200px; */
+        width: 60%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;    
+        overflow: auto;
+    }
+
+
+    
+    #pCalificaciones {
+        background-color: white;
+        /*height: 600px;*/
+        /*width: 90%;*/
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;    
+        overflow: auto;
+        
+    }
+
+    #pCalificaciones h1 {
+        margin: 0;
+    }
+    
+    
+    #iSalir {
+        padding: 10px;
+        margin-right: 20px;
+        margin-left: 20px;
+        position: absolute;
+        right: 0;
+    }
+
+    /* Muestra perfil de usuario */
+    #marcoPerfil {
+        background-color: #23383f;
+        width: 100%;
+        height: 270px;
+        color: white;
+        margin: auto;
+        border-radius: 3px;
+        overflow: auto;
+    }
+
+    #pPerfilUsuario {
+        background-color: white;
+        /*height: 500px;*/
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        font-size: 85%;    
+        overflow: auto;
+    }
+
+
+
+    .imagenUsuario {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 5px solid white;
+    }
+
+    #datosPerfil {
+        margin-bottom: 20px;
+    }
+
+    #datosPerfil h3 {
+        padding: 10px;
+    }
+
+    .contPerfil {
+        display: flex;
+        align-items: center;
+        width: 96%;
+        background-color: white;
+        color: #23383f;
+        border-bottom: 2px solid white;
+        border-radius: 3px;
+        margin: 1% 2% 2% 2%;
+    }
+
+    .contPerfil:hover {
+        background-color: #23383f;
+        color: white;
+    }
+
+    #CDU {
+        display: none;
+    }
+
+    #contDatosUsuario {
+        display: none;
+    }
+
+    .displayDato {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #datosUsuario {
+        border: 2px solid #23383f;
+        border-radius: 3px;
+        overflow: auto;
+        margin: 5%;
+        padding: 5%;
+        text-align: center;
+        color: #23383f;
+
+    }
+    .contPerfil i {
+        float: left;
+        padding-left: 2%;
+        font-size: 20px;
+    }
+
+    .dato {
+        border: 1px solid grey;
+        border-radius: 3px;
+        padding: 5px 20px;
+        display: inline-block;
+        text-align: center;
+        overflow: auto;
+    }
+    
+    .contMargenDU {
+        margin: 1% 2% 0 2%;
+    }
+
+    .contDU {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: #23383f;
+        border-bottom: 2px solid white;
+        border-radius: 3px;
+    }
+
+    .contDU:hover {
+        background-color: #23383f;
+        transition: all .1s;
+        color: white;
+    }
+
+    .contDU h3 {
+        margin-left: 2%;/*Con padding se buguea "indumentaria" en Chrome y Opera*/
+        font-size: 150%;
+    }
+
+    .iMenos {
+        display: none;
+    }
+
+    .contDU i {
+        float: left;
+        padding-left: 2%;
+        font-size: 20px;
+    }
+
+    #datosBici, #datosT, #datosI, #datosS {
+        display: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+        border: 1px solid #23383f;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th,td {
+        height: 50px;
+        padding: 10px;
+        border-bottom: 1px solid grey;
+    }
+
+    th {
+        background-color: #23383f;
+        color: white;   
+    }
+    tr:hover {
+        background-color: #5A8897;
+        color: white;
+    }
+
+    .botonInputSubida {
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        color: #23383f;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .inputSubida {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: -1;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    #botonMostrarSD {
+        padding: 10px;
+        border-radius: 3px;
+        border: none;
+        background-color: #2980b9;
+        color: white;
+        font-size: 80%;
+        font-weight: bold;
+        
+    }
+
+    #pDestacadas {
+        background-color: white;
+        /*height: 500px;*/
+        width: 90%;
+        border-radius: 3px;
+        margin: auto;
+        color: black;
+        overflow: auto;
+    }
+
+    .bkSugerencia {
+        padding-right: 10px;
+    }
+}
